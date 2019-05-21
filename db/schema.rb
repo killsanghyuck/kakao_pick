@@ -10,6 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2019_05_15_094239) do
+
+  create_table "areas", force: :cascade do |t|
+    t.string "name"
+    t.integer "kp_id"
+    t.integer "equipment"
+    t.string "url"
+    t.string "login_id"
+    t.string "login_password"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tickets", force: :cascade do |t|
+    t.integer "area_id"
+    t.integer "division"
+    t.string "name"
+    t.integer "hour"
+    t.string "key"
+    t.time "start"
+    t.time "end"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["area_id"], name: "index_tickets_on_area_id"
+  end
 
 end

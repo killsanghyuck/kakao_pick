@@ -1,0 +1,25 @@
+.container
+  .col-md-12
+    = simple_form_for(area) do |f|
+      = f.input :name
+      = f.input :kp_id
+      = f.input :equipment, collection: Area.equipment.keys.to_a, label: '설비사'
+      = f.input :url
+      = f.input :login_id
+      = f.input :login_password, type: 'text'
+      table.table.table-border
+        thead
+          tr
+            th 분류
+            th 주차권이름(어드민과동일)
+            th 시간(시간권인경우)
+            th 웹할인 키값
+            th 이용가능시작시간
+            th 이용가능종료시간
+            th 삭제에
+        tbody.tickets
+          = f.simple_fields_for :tickets do |ticket|
+            = render 'ticket_fields', f: ticket
+      .links
+        = link_to_add_association 'add ticket', f, :tickets, data: {'association-insertion-node' => 'tbody.tickets', 'association-insertion-method' => 'append'}
+      = f.submit

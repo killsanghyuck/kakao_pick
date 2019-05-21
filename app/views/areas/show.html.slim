@@ -1,0 +1,21 @@
+.container
+  .col-md-12
+    .panel.panel-default
+      .panel-heading
+        h3.panel-title
+          = @area.name
+      .panel-body
+        dl.dl-horizontal
+          dt 이름
+          dd = @area.name
+          dt kp_id
+          dd = @area.kp_id
+          dt 웹할인 url
+          dd = @area.url
+          dt 아이디, 비번
+          dd = "#{@area.login_id}, #{@area.login_password}"
+          dt 처리한 pick count
+          dd =
+
+        = link_to 'Edit', edit_area_path(@area)
+        = link_to 'Back', areas_path

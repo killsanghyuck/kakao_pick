@@ -6,8 +6,9 @@ class CreateAreas < ActiveRecord::Migration[5.2]
       t.integer :kp_id
       t.integer :equipment
       t.string :url
-      t.string :id
-      t.string :password
+      t.string :login_id
+      t.string :login_password
+      t.integer :picks_count
       t.timestamps
     end
   end

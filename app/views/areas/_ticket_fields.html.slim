@@ -1,0 +1,8 @@
+tr.nested-fields
+  td= f.input :division, collection: Ticket.divisions.keys.to_a, label: false
+  td= f.input :name, label: false
+  td= f.input :hour, label: false
+  td= f.input :key, label: false
+  td= f.input :start, label: false
+  td= f.input :end, label: false
+  td= link_to_remove_association "remove task", f
