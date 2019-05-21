@@ -6,7 +6,7 @@
       = f.input :equipment, collection: Area.equipment.keys.to_a, label: '설비사'
       = f.input :url
       = f.input :login_id
-      = f.input :login_password, type: 'text'
+      = f.input :login_password, :required => true, input_html: { value: @area.login_password }
       table.table.table-border
         thead
           tr
